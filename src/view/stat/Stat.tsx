@@ -12,7 +12,9 @@ const Stat: React.FC = () => {
     return (
         <div className="stat">
             <h1>Stat</h1>
-            <h2>{user?.username}</h2>
+            <h2>
+                Username: {user?.username}, {user?.first_name}
+            </h2>
             <Button onClick={() => navigate(CALENDAR_PATH)}>Calendar</Button>
             <Button onClick={onClose}>onClose</Button>
         </div>
