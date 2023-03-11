@@ -7,13 +7,14 @@ import './Stat.css';
 
 const Stat: React.FC = () => {
     const navigate = useNavigate();
-    const {user} = useTelegram();
+    const {user, onClose} = useTelegram();
 
     return (
         <div className="stat">
             <h1>Stat</h1>
             <h2>{user?.username}</h2>
             <Button onClick={() => navigate(CALENDAR_PATH)}>Calendar</Button>
+            <Button onClick={onClose}>onClose</Button>
         </div>
     );
 };
