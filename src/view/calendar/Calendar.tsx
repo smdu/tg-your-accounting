@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
+import {services} from '../../api/services';
 import Button from '../../components/button/Button';
 import {STAT_PATH} from '../../routes';
 import './Calendar.css';
@@ -8,6 +9,11 @@ const Calendar: React.FC = () => {
     const [year, serYear] = useState<number>(new Date().getFullYear());
     const [monthMap, setMonthMap] = useState<any>({});
     const navigate = useNavigate();
+
+    useEffect(() => {
+        console.log('calendar::useEfferct, no deps');
+        services.calendar.list();
+    }, []);
 
     const onYearChange = (e: React.FormEvent<HTMLSelectElement>) => {
         serYear(Number(e.currentTarget.value));
